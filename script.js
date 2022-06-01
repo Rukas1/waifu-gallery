@@ -31,4 +31,4 @@ function makeImage(nbImage = 1) {
     }
 }
 
-makeImage(25);
+makeImage(5);

@@ -46,7 +46,7 @@ hr {
     width: 90%;
     height: 90%;
     object-fit: cover;
-    object-position: center;
+    object-position: top;
     transition: 0.5s;
     border-radius: 15px;
 }
@@ -61,8 +61,8 @@ hr {
     margin: 5px;
     overflow: hidden;
     flex-shrink: 0;
-    width: 225px;
-    height: 225px;
+    max-width: 225px;
+    /* height: 225px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,6 +81,7 @@ hr {
 @media screen and (max-width: 426px){
     .item {
         flex-grow: 1;
+        max-width: 90%;
     }
     h1 {
         font-size: 40px;
