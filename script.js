@@ -11,24 +11,16 @@ function httpGet(url = "https://api.waifu.im/random/") {
     return data;
 }
 
-function makeImage(nbImage = 1) {
-    // var gal = document.getElementById("gallery");
-    // var div = document.createElement("div");
-    // div.setAttribute("class", "item");
-    // var img = document.createElement("img")
-    // img.setAttribute("src", httpGet()["images"][0]["url"]);
-    // div.appendChild(img);
-    // gal.appendChild(div);
-
-    for (var i = 0 ; i < nbImage ; ++i) {
-        let url = httpGet()["images"][0]["url"];
-    const item = `
+function makeImage() {
+    let data = httpGet("https://api.waifu.im/random/?many=true&is_nsfw=false");
+    let allImages = data["images"];
+    for (var i = 0 ; i < allImages.length ; ++i) {
+        let url = allImages[i]["url"];
+        let item = `
         <div class="item">
             <a href="${url}"><img src="${url}"></a>
         </div>
-    `;
-    document.querySelector("#gallery").insertAdjacentHTML("afterbegin", item);
+        `;
+        document.querySelector("#gallery").insertAdjacentHTML("afterbegin", item);
     }
 }
-
-makeImage(5);
